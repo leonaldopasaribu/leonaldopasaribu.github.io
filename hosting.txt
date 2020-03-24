@@ -2,4 +2,4 @@ Firebase Hosting
 https://football-league-86ab7.firebaseapp.com
 
 GitHub Link
-https://github.com/leonaldopasaribu/football-standings.git
+https://github.com/leonaldopasaribu/leonaldopasaribu.github.io.git
