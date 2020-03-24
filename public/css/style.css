@@ -1,0 +1,77 @@
+nav {
+  box-shadow: none;
+}
+
+nav,.footer-copyright,.page-footer{
+  background-color:  #26A69A !important;
+}
+
+.img-favorite{
+  width: 60px;
+  height: 60px;
+}
+
+.waves-effect.waves-cyan .waves-ripple {
+  /* The alpha value allows the text and background color
+  of the button to still show through. */
+   background-color: #26A69A;
+}
+
+.brand-logo {
+  font-size: 18px !important;
+}
+
+.card {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+}
+
+.card-header {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-header span {
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.card-content {
+  margin-top: -20px;
+}
+
+table {
+  font-size: 10px !important;
+}
+
+table thead th {
+  font-weight: 400;
+  font-size: 11px;
+  color: #868686;
+}
+
+.kartu-pemain .nama {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.kartu-pemain .from {
+  font-size: 14px;
+  font-weight: 600;
+  color: #868686;
+}
+
+.kartu-pemain .nationality {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.kartu-pemain .position {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.logo {
+  display: none;
+
+}
