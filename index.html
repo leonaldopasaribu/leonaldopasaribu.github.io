@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leonaldo Pasaribu - Frontend Engineer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        line-height: 1.7;
+        color: #1a1a1a;
+        background: #ffffff;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      header {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      header.scrolled {
+        box-shadow: 0 2px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+      }
+
+      .logo {
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: -0.5px;
+        color: #1a1a1a;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 3rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 500;
+        font-size: 0.95rem;
+        letter-spacing: 0.3px;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #1a1a1a;
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #1a1a1a;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 80px;
+        background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+      }
+
+      .hero-content {
+        text-align: center;
+        animation: fadeInUp 1s ease;
+        max-width: 800px;
+      }
+
+      .hero-label {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #999;
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      }
+
+      .hero h1 {
+        font-size: 4.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        letter-spacing: -2px;
+        color: #1a1a1a;
+        line-height: 1.1;
+      }
+
+      .hero .subtitle {
+        font-size: 1.3rem;
+        color: #666;
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+
+      .hero .location {
+        font-size: 1rem;
+        color: #999;
+        margin-bottom: 3rem;
+        font-weight: 400;
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 14px 35px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        letter-spacing: 0.3px;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: #1a1a1a;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #333;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: #1a1a1a;
+        border: 1.5px solid #e0e0e0;
+      }
+
+      .btn-secondary:hover {
+        border-color: #1a1a1a;
+        background: #fafafa;
+      }
+
+      section {
+        padding: 8rem 2rem;
+      }
+
+      section:nth-child(even) {
+        background: #fafafa;
+      }
+
+      .section-title {
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #999;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .section-heading {
+        font-size: 2.8rem;
+        margin-bottom: 4rem;
+        color: #1a1a1a;
+        font-weight: 600;
+        letter-spacing: -1px;
+      }
+
+      .about-content {
+        max-width: 750px;
+        margin: 0 auto;
+        font-size: 1.15rem;
+        line-height: 1.9;
+        color: #555;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .skill-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 8px;
+        border: 1px solid #e8e8e8;
+        transition: all 0.3s ease;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+        border-color: #d0d0d0;
+      }
+
+      .skill-card h3 {
+        color: #1a1a1a;
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: -0.3px;
+      }
+
+      .skill-card ul {
+        list-style: none;
+      }
+
+      .skill-card li {
+        padding: 0.5rem 0;
+        color: #666;
+        font-size: 0.95rem;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .skill-card li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #1a1a1a;
+        font-weight: bold;
+      }
+
+      .experience-timeline {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .timeline-item {
+        background: white;
+        padding: 3rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        border: 1px solid #e8e8e8;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background: #1a1a1a;
+        border-radius: 8px 0 0 8px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .timeline-item:hover::before {
+        opacity: 1;
+      }
+
+      .timeline-item:hover {
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+        border-color: #d0d0d0;
+      }
+
+      .timeline-item h3 {
+        color: #1a1a1a;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        letter-spacing: -0.5px;
+      }
+
+      .timeline-item .company {
+        color: #666;
+        font-weight: 500;
+        font-size: 1.05rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-item .date {
+        color: #999;
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.3px;
+      }
+
+      .timeline-item ul {
+        margin-left: 0;
+        list-style: none;
+      }
+
+      .timeline-item li {
+        margin-bottom: 0.8rem;
+        color: #666;
+        padding-left: 25px;
+        position: relative;
+        font-size: 0.95rem;
+        line-height: 1.7;
+      }
+
+      .timeline-item li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #1a1a1a;
+        font-weight: normal;
+      }
+
+      .contact-content {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .contact-intro {
+        font-size: 1.15rem;
+        color: #666;
+        margin-bottom: 3rem;
+        line-height: 1.8;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .contact-link {
+        background: white;
+        color: #1a1a1a;
+        padding: 1.8rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        border: 1px solid #e8e8e8;
+        font-size: 0.95rem;
+      }
+
+      .contact-link:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border-color: #1a1a1a;
+      }
+
+      .contact-icon {
+        font-size: 1.3rem;
+      }
+
+      footer {
+        background: #1a1a1a;
+        color: #999;
+        text-align: center;
+        padding: 3rem 2rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.3px;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .hero .subtitle {
+          font-size: 1.1rem;
+        }
+
+        .nav-links {
+          gap: 1.5rem;
+          font-size: 0.85rem;
+        }
+
+        .section-heading {
+          font-size: 2rem;
+        }
+
+        section {
+          padding: 5rem 1.5rem;
+        }
+
+        .timeline-item {
+          padding: 2rem;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <nav>
+        <div class="logo"></div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-label">Frontend Engineer</div>
+        <h1>Leonaldo Jose<br />Nathanael Pasaribu</h1>
+        <p class="location">Based in Jakarta, Indonesia</p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn btn-primary">Get In Touch</a>
+          <a
+            href="https://www.linkedin.com/in/leonaldo-pasaribu/"
+            target="_blank"
+            class="btn btn-secondary"
+            >View LinkedIn</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">About</div>
+        <h2 class="section-heading">
+          Passionate about creating exceptional user experiences
+        </h2>
+        <div class="about-content">
+          <p>
+            With over 5 years of experience as a Frontend Engineer, I specialize
+            in developing scalable web applications using modern frameworks like
+            Angular, React.js, Next.js, and Vue. My expertise spans implementing
+            clean architecture principles, establishing comprehensive testing
+            strategies, and building CI/CD pipelines that ensure code quality
+            and reliability.
+          </p>
+          <br />
+          <p>
+            I have a proven track record in fintech and e-commerce solutions,
+            consistently delivering high-performance applications that serve
+            thousands of users while maintaining excellent code standards and
+            optimal user experiences.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">Expertise</div>
+        <h2 class="section-heading">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Frontend Development</h3>
+            <ul>
+              <li>Angular</li>
+              <li>React.js & Next.js</li>
+              <li>Vue.js</li>
+              <li>React Native</li>
+              <li>TypeScript & JavaScript</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>UI & Styling</h3>
+            <ul>
+              <li>Bootstrap</li>
+              <li>Tailwind CSS</li>
+              <li>Material UI</li>
+              <li>CSS3 & HTML5</li>
+              <li>Responsive Design</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Testing & DevOps</h3>
+            <ul>
+              <li>Jasmine & Karma</li>
+              <li>Cypress & Jest</li>
+              <li>Git & GitHub</li>
+              <li>New Relic & Grafana</li>
+              <li>CI/CD Pipelines</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Architecture & Methodologies</h3>
+            <ul>
+              <li>Clean Architecture</li>
+              <li>MVVM Pattern</li>
+              <li>Repository Pattern</li>
+              <li>Agile Scrum</li>
+              <li>Test-Driven Development</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-title">Career</div>
+        <h2 class="section-heading">Professional Experience</h2>
+        <div class="experience-timeline">
+          <div class="timeline-item">
+            <h3>Front End Engineer</h3>
+            <div class="company">Paper.id PT Pakar Digital Global</div>
+            <div class="date">May 2025 – Present · Jakarta, Indonesia</div>
+            <ul>
+              <li>
+                Developing and enhancing features for Accounting and Inventory
+                systems, improving operational efficiency through streamlined
+                stock management and reporting processes
+              </li>
+              <li>
+                Implementing real-time communication using WebSocket for
+                inventory updates and recalculation progress, enhancing data
+                synchronization and user experience
+              </li>
+              <li>
+                Applying Clean Architecture principles to maintain scalable and
+                modular code, consistently achieving 75%+ code quality scores in
+                pull request evaluations
+              </li>
+              <li>
+                Establishing comprehensive unit testing coverage for new
+                features and legacy code, reducing regression issues by 40%
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Front End Engineer</h3>
+            <div class="company">PT. Bank Amar Indonesia</div>
+            <div class="date">May 2022 – May 2025 · Jakarta, Indonesia</div>
+            <ul>
+              <li>
+                Led frontend development projects using Angular, React.js, and
+                Next.js, implementing clean architecture principles across
+                multiple banking applications
+              </li>
+              <li>
+                Established CI/CD pipelines for end-to-end testing using
+                Cypress, reducing manual testing time by 60% and improving
+                deployment reliability
+              </li>
+              <li>
+                Contributed to embedded banking and finance solutions for
+                partner integrations, enhancing financial service offerings for
+                50+ corporate clients
+              </li>
+              <li>
+                Implemented comprehensive testing strategy, increasing code
+                coverage from 45% to 85% for the Tunaiku web application
+              </li>
+              <li>
+                Monitored application performance using New Relic and Grafana,
+                ensuring 99.9% uptime and optimal user experience
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Front End Engineer</h3>
+            <div class="company">Booking To Go</div>
+            <div class="date">Nov 2020 – Apr 2022 · Remote, Indonesia</div>
+            <ul>
+              <li>
+                Developed responsive e-commerce websites for 15+ clients,
+                ensuring cross-browser compatibility and optimal user experience
+              </li>
+              <li>
+                Created company profile and F&B websites currently serving
+                10,000+ monthly active users
+              </li>
+              <li>
+                Designed and implemented multi-room booking feature for
+                BookingToGo platform, increasing booking flexibility and
+                improving user satisfaction by 25%
+              </li>
+              <li>
+                Built mobile-responsive applications using React.js and React
+                Native
+              </li>
+            </ul>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Software Developer Intern</h3>
+            <div class="company">PT. Moonlay Technologies</div>
+            <div class="date">
+              Jun 2019 – Aug 2020 · Jakarta & Remote, Indonesia
+            </div>
+            <ul>
+              <li>
+                Developed attendance tracking and reimbursement request features
+                for E-Workplace application
+              </li>
+              <li>Improved HR workflow efficiency for 500+ employees</li>
+              <li>
+                Collaborated with senior developers to implement React Native
+                solutions following best practices
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">Contact</div>
+        <h2 class="section-heading">Let's Work Together</h2>
+        <div class="contact-content">
+          <p class="contact-intro">
+            I'm always open to discussing new projects, creative ideas, or
+            opportunities to contribute to your vision. Feel free to reach out
+            through any of the channels below.
+          </p>
+          <div class="contact-grid">
+            <a href="mailto:leonaldopasaribu@gmail.com" class="contact-link">
+              <div class="contact-info">
+                <div class="contact-label">
+                  <span class="contact-icon">✉</span> Email
+                </div>
+                <div class="contact-value">leonaldopasaribu@gmail.com</div>
+              </div>
+            </a>
+            <a href="tel:+6281264374141" class="contact-link">
+              <div class="contact-info">
+                <div class="contact-label">
+                  <span class="contact-icon">☎</span> Phone
+                </div>
+                <div class="contact-value">+62 812-6437-4141</div>
+              </div>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/leonaldo-pasaribu/"
+              target="_blank"
+              class="contact-link"
+            >
+              <div class="contact-info">
+                <div class="contact-label">
+                  <span class="contact-icon">⚡</span> LinkedIn
+                </div>
+                <div class="contact-value">Leonaldo Pasaribu</div>
+              </div>
+            </a>
+            <a
+              href="https://github.com/leonaldopasaribu"
+              target="_blank"
+              class="contact-link"
+            >
+              <div class="contact-info">
+                <div class="contact-label">
+                  <span class="contact-icon">⌘</span> GitHub
+                </div>
+                <div class="contact-value">leonaldopasaribu</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Leonaldo Pasaribu. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Header scroll effect
+      const header = document.getElementById("header");
+      let lastScroll = 0;
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 100) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+
+        lastScroll = currentScroll;
+      });
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".skill-card, .timeline-item").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
