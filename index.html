@@ -18,6 +18,7 @@
         color: #1a1a1a;
         background: #ffffff;
         overflow-x: hidden;
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
 
       .container {
@@ -55,6 +56,12 @@
         color: #1a1a1a;
       }
 
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+
       .nav-links {
         display: flex;
         gap: 3rem;
@@ -88,6 +95,235 @@
 
       .nav-links a:hover::after {
         width: 100%;
+      }
+
+      .theme-toggle {
+        background: transparent;
+        border: 1.5px solid #e0e0e0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+      }
+
+      .theme-toggle:hover {
+        border-color: #1a1a1a;
+        transform: rotate(15deg);
+      }
+
+      .menu-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        width: 30px;
+        height: 24px;
+        position: relative;
+        z-index: 1001;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #1a1a1a;
+        position: absolute;
+        left: 0;
+        transition: all 0.3s ease;
+      }
+
+      .menu-toggle span:nth-child(1) {
+        top: 0;
+      }
+
+      .menu-toggle span:nth-child(2) {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .menu-toggle span:nth-child(3) {
+        bottom: 0;
+      }
+
+      .menu-toggle.active span:nth-child(1) {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+      }
+
+      .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.active span:nth-child(3) {
+        bottom: 50%;
+        transform: translateY(50%) rotate(-45deg);
+      }
+
+      body.dark-mode .menu-toggle span {
+        background: #e0e0e0;
+      }
+
+      body.dark-mode {
+        background: #0a0a0a;
+        color: #e0e0e0;
+      }
+
+      body.dark-mode header {
+        background: rgba(10, 10, 10, 0.98);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      body.dark-mode .logo {
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .nav-links a {
+        color: #999;
+      }
+
+      body.dark-mode .nav-links a:hover {
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .nav-links a::after {
+        background: #e0e0e0;
+      }
+
+      body.dark-mode .theme-toggle {
+        border-color: #333;
+      }
+
+      body.dark-mode .theme-toggle:hover {
+        border-color: #e0e0e0;
+      }
+
+      body.dark-mode .hero {
+        background: linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%);
+      }
+
+      body.dark-mode .hero h1 {
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .hero .subtitle {
+        color: #999;
+      }
+
+      body.dark-mode .hero .location {
+        color: #666;
+      }
+
+      body.dark-mode .btn-primary {
+        background: #e0e0e0;
+        color: #0a0a0a;
+      }
+
+      body.dark-mode .btn-primary:hover {
+        background: #fff;
+      }
+
+      body.dark-mode .btn-secondary {
+        border-color: #333;
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .btn-secondary:hover {
+        border-color: #e0e0e0;
+        background: #1a1a1a;
+      }
+
+      body.dark-mode section:nth-child(even) {
+        background: #0f0f0f;
+      }
+
+      body.dark-mode .section-heading {
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .about-content {
+        color: #999;
+      }
+
+      body.dark-mode .skill-card {
+        background: #1a1a1a;
+        border-color: #2a2a2a;
+      }
+
+      body.dark-mode .skill-card:hover {
+        border-color: #3a3a3a;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      body.dark-mode .skill-card h3 {
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .skill-card li {
+        color: #999;
+      }
+
+      body.dark-mode .skill-card li::before {
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .timeline-item {
+        background: #1a1a1a;
+        border-color: #2a2a2a;
+      }
+
+      body.dark-mode .timeline-item::before {
+        background: #e0e0e0;
+      }
+
+      body.dark-mode .timeline-item:hover {
+        border-color: #3a3a3a;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      body.dark-mode .timeline-item h3 {
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .timeline-item .company {
+        color: #999;
+      }
+
+      body.dark-mode .timeline-item .date {
+        color: #666;
+      }
+
+      body.dark-mode .timeline-item li {
+        color: #999;
+      }
+
+      body.dark-mode .timeline-item li::before {
+        color: #e0e0e0;
+      }
+
+      body.dark-mode .contact-intro {
+        color: #999;
+      }
+
+      body.dark-mode .contact-link {
+        background: #1a1a1a;
+        color: #e0e0e0;
+        border-color: #2a2a2a;
+      }
+
+      body.dark-mode .contact-link:hover {
+        border-color: #e0e0e0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      body.dark-mode footer {
+        background: #0a0a0a;
+        color: #666;
       }
 
       .hero {
@@ -412,17 +648,66 @@
           padding: 0 20px;
         }
 
+        nav {
+          padding: 1rem 1.5rem;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-right {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 70%;
+          max-width: 300px;
+          height: 100vh;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(20px);
+          flex-direction: column;
+          justify-content: flex-start;
+          padding: 5rem 2rem 2rem;
+          gap: 2rem;
+          transition: right 0.3s ease;
+          box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-right.active {
+          right: 0;
+        }
+
+        body.dark-mode .nav-right {
+          background: rgba(10, 10, 10, 0.98);
+          box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links {
+          flex-direction: column;
+          gap: 2rem;
+          width: 100%;
+        }
+
+        .nav-links a {
+          font-size: 1.1rem;
+          display: block;
+          text-align: left;
+        }
+
+        .nav-links a::after {
+          display: none;
+        }
+
+        .theme-toggle {
+          align-self: flex-start;
+        }
+
         .hero h1 {
-          font-size: 3rem;
+          font-size: 2.5rem;
         }
 
         .hero .subtitle {
           font-size: 1.1rem;
-        }
-
-        .nav-links {
-          gap: 1.5rem;
-          font-size: 0.85rem;
         }
 
         .section-heading {
@@ -440,6 +725,18 @@
         .contact-grid {
           grid-template-columns: 1fr;
         }
+
+        .cta-buttons {
+          flex-direction: column;
+          width: 100%;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+
+        .btn {
+          width: 100%;
+          text-align: center;
+        }
       }
     </style>
   </head>
@@ -447,12 +744,26 @@
     <header id="header">
       <nav>
         <div class="logo"></div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-right" id="navRight">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <span id="themeIcon">☀️</span>
+          </button>
+        </div>
       </nav>
     </header>
 
@@ -719,7 +1030,50 @@
     </footer>
 
     <script>
-      // Smooth scrolling
+      const themeToggle = document.getElementById("themeToggle");
+      const themeIcon = document.getElementById("themeIcon");
+      const body = document.body;
+      const currentTheme = localStorage.getItem("theme") || "light";
+
+      if (currentTheme === "dark") {
+        body.classList.add("dark-mode");
+        themeIcon.textContent = "🌙";
+      }
+
+      themeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+
+        if (body.classList.contains("dark-mode")) {
+          themeIcon.textContent = "🌙";
+          localStorage.setItem("theme", "dark");
+        } else {
+          themeIcon.textContent = "☀️";
+          localStorage.setItem("theme", "light");
+        }
+      });
+
+      const menuToggle = document.getElementById("menuToggle");
+      const navRight = document.getElementById("navRight");
+
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        navRight.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuToggle.classList.remove("active");
+          navRight.classList.remove("active");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!navRight.contains(e.target) && !menuToggle.contains(e.target)) {
+          menuToggle.classList.remove("active");
+          navRight.classList.remove("active");
+        }
+      });
+
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
@@ -733,7 +1087,6 @@
         });
       });
 
-      // Header scroll effect
       const header = document.getElementById("header");
       let lastScroll = 0;
 
@@ -749,7 +1102,6 @@
         lastScroll = currentScroll;
       });
 
-      // Intersection Observer for fade-in animations
       const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
