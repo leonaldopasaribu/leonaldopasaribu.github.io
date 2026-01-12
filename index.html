@@ -16,7 +16,7 @@
           sans-serif;
         line-height: 1.7;
         color: #1a1a1a;
-        background: #ffffff;
+        background: #f5f5f5;
         overflow-x: hidden;
         transition: background-color 0.3s ease, color 0.3s ease;
       }
@@ -28,25 +28,35 @@
       }
 
       header {
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 1rem 2rem;
         transition: all 0.3s ease;
       }
 
-      header.scrolled {
-        box-shadow: 0 2px 30px rgba(0, 0, 0, 0.05);
+      header.scrolled .header-container {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      .header-container {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        max-width: 1400px;
+        margin: 0 auto;
+        transition: all 0.3s ease;
       }
 
       nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1.5rem 2rem;
+        padding: 1.2rem 2rem;
       }
 
       .logo {
@@ -170,13 +180,20 @@
       }
 
       body.dark-mode {
-        background: #0a0a0a;
+        background: #050505;
         color: #e0e0e0;
       }
 
-      body.dark-mode header {
-        background: rgba(10, 10, 10, 0.98);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      body.dark-mode .header-container {
+        background: rgba(10, 10, 10, 0.75);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+      }
+
+      body.dark-mode header.scrolled .header-container {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
       }
 
       body.dark-mode .logo {
@@ -204,7 +221,7 @@
       }
 
       body.dark-mode .hero {
-        background: linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%);
+        background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
       }
 
       body.dark-mode .hero h1 {
@@ -239,7 +256,7 @@
       }
 
       body.dark-mode section:nth-child(even) {
-        background: #0f0f0f;
+        background: #0a0a0a;
       }
 
       body.dark-mode .section-heading {
@@ -251,13 +268,17 @@
       }
 
       body.dark-mode .skill-card {
-        background: #1a1a1a;
-        border-color: #2a2a2a;
+        background: rgba(20, 20, 20, 0.7);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
       }
 
       body.dark-mode .skill-card:hover {
-        border-color: #3a3a3a;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        background: rgba(25, 25, 25, 0.8);
       }
 
       body.dark-mode .skill-card h3 {
@@ -273,8 +294,11 @@
       }
 
       body.dark-mode .timeline-item {
-        background: #1a1a1a;
-        border-color: #2a2a2a;
+        background: rgba(20, 20, 20, 0.7);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
       }
 
       body.dark-mode .timeline-item::before {
@@ -282,8 +306,9 @@
       }
 
       body.dark-mode .timeline-item:hover {
-        border-color: #3a3a3a;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        background: rgba(25, 25, 25, 0.8);
       }
 
       body.dark-mode .timeline-item h3 {
@@ -311,18 +336,22 @@
       }
 
       body.dark-mode .contact-link {
-        background: #1a1a1a;
+        background: rgba(20, 20, 20, 0.7);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
         color: #e0e0e0;
-        border-color: #2a2a2a;
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
       }
 
       body.dark-mode .contact-link:hover {
-        border-color: #e0e0e0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        background: rgba(25, 25, 25, 0.8);
       }
 
       body.dark-mode footer {
-        background: #0a0a0a;
+        background: #050505;
         color: #666;
       }
 
@@ -331,8 +360,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-top: 80px;
-        background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+        padding-top: 100px;
+        background: linear-gradient(180deg, #f5f5f5 0%, #ffffff 100%);
       }
 
       .hero-content {
@@ -418,7 +447,7 @@
       }
 
       section:nth-child(even) {
-        background: #fafafa;
+        background: #f8f8f8;
       }
 
       .section-title {
@@ -455,17 +484,21 @@
       }
 
       .skill-card {
-        background: white;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
         padding: 2.5rem;
-        border-radius: 8px;
-        border: 1px solid #e8e8e8;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
         transition: all 0.3s ease;
       }
 
       .skill-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-        border-color: #d0d0d0;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        border-color: rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.95);
       }
 
       .skill-card h3 {
@@ -502,11 +535,14 @@
       }
 
       .timeline-item {
-        background: white;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
         padding: 3rem;
         margin-bottom: 2rem;
-        border-radius: 8px;
-        border: 1px solid #e8e8e8;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
         transition: all 0.3s ease;
         position: relative;
       }
@@ -529,8 +565,9 @@
       }
 
       .timeline-item:hover {
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-        border-color: #d0d0d0;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        border-color: rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.95);
       }
 
       .timeline-item h3 {
@@ -598,10 +635,12 @@
       }
 
       .contact-link {
-        background: white;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
         color: #1a1a1a;
         padding: 1.8rem 2rem;
-        border-radius: 8px;
+        border-radius: 16px;
         text-decoration: none;
         font-weight: 500;
         transition: all 0.3s ease;
@@ -609,14 +648,16 @@
         align-items: center;
         justify-content: center;
         gap: 1rem;
-        border: 1px solid #e8e8e8;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
         font-size: 0.95rem;
       }
 
       .contact-link:hover {
         transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        border-color: #1a1a1a;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        border-color: rgba(0, 0, 0, 0.1);
+        background: rgba(255, 255, 255, 0.95);
       }
 
       .contact-icon {
@@ -624,7 +665,7 @@
       }
 
       footer {
-        background: #1a1a1a;
+        background: #0a0a0a;
         color: #999;
         text-align: center;
         padding: 3rem 2rem;
@@ -648,6 +689,14 @@
           padding: 0 20px;
         }
 
+        header {
+          padding: 0.75rem 1rem;
+        }
+
+        .header-container {
+          border-radius: 12px;
+        }
+
         nav {
           padding: 1rem 1.5rem;
         }
@@ -663,8 +712,9 @@
           width: 70%;
           max-width: 300px;
           height: 100vh;
-          background: rgba(255, 255, 255, 0.98);
-          backdrop-filter: blur(20px);
+          background: rgba(255, 255, 255, 0.9);
+          backdrop-filter: blur(30px) saturate(180%);
+          -webkit-backdrop-filter: blur(30px) saturate(180%);
           flex-direction: column;
           justify-content: flex-start;
           padding: 5rem 2rem 2rem;
@@ -678,8 +728,10 @@
         }
 
         body.dark-mode .nav-right {
-          background: rgba(10, 10, 10, 0.98);
-          box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+          background: rgba(10, 10, 10, 0.9);
+          backdrop-filter: blur(30px) saturate(180%);
+          -webkit-backdrop-filter: blur(30px) saturate(180%);
+          box-shadow: -5px 0 20px rgba(0, 0, 0, 0.6);
         }
 
         .nav-links {
@@ -742,29 +794,31 @@
   </head>
   <body>
     <header id="header">
-      <nav>
-        <div class="logo"></div>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div class="nav-right" id="navRight">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-          <button
-            class="theme-toggle"
-            id="themeToggle"
-            aria-label="Toggle theme"
-          >
-            <span id="themeIcon">☀️</span>
+      <div class="header-container">
+        <nav>
+          <div class="logo"></div>
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
           </button>
-        </div>
-      </nav>
+          <div class="nav-right" id="navRight">
+            <ul class="nav-links">
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#experience">Experience</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              aria-label="Toggle theme"
+            >
+              <span id="themeIcon">☀️</span>
+            </button>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <section class="hero">
