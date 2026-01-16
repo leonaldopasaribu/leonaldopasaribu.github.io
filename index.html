@@ -84,27 +84,15 @@
         font-weight: 500;
         font-size: 0.95rem;
         letter-spacing: 0.3px;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
         position: relative;
-      }
-
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #1a1a1a;
-        transition: width 0.3s ease;
+        padding: 10px 20px;
+        border-radius: 50px;
       }
 
       .nav-links a:hover {
         color: #1a1a1a;
-      }
-
-      .nav-links a:hover::after {
-        width: 100%;
+        background: rgba(0, 0, 0, 0.08);
       }
 
       .theme-toggle {
@@ -206,10 +194,7 @@
 
       body.dark-mode .nav-links a:hover {
         color: #e0e0e0;
-      }
-
-      body.dark-mode .nav-links a::after {
-        background: #e0e0e0;
+        background: rgba(255, 255, 255, 0.2);
       }
 
       body.dark-mode .theme-toggle {
@@ -545,23 +530,6 @@
         box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
         transition: all 0.3s ease;
         position: relative;
-      }
-
-      .timeline-item::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 3px;
-        height: 100%;
-        background: #1a1a1a;
-        border-radius: 8px 0 0 8px;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      .timeline-item:hover::before {
-        opacity: 1;
       }
 
       .timeline-item:hover {
