@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leonaldo Pasaribu - Frontend Engineer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
     <style>
       * {
         margin: 0;
@@ -503,15 +507,20 @@
         color: #666;
         font-size: 0.95rem;
         position: relative;
-        padding-left: 20px;
+        padding-left: 40px;
+        display: flex;
+        align-items: center;
       }
 
-      .skill-card li::before {
-        content: "•";
+      .skill-card li i {
         position: absolute;
         left: 0;
+        font-size: 1.5rem;
         color: #1a1a1a;
-        font-weight: bold;
+      }
+
+      body.dark-mode .skill-card li i {
+        color: #e0e0e0;
       }
 
       .experience-timeline {
@@ -850,41 +859,42 @@
           <div class="skill-card">
             <h3>Frontend Development</h3>
             <ul>
-              <li>Angular</li>
-              <li>React.js & Next.js</li>
-              <li>Vue.js</li>
-              <li>React Native</li>
-              <li>TypeScript & JavaScript</li>
+              <li><i class="devicon-angularjs-plain colored"></i>Angular</li>
+              <li><i class="devicon-react-original colored"></i>React.js & Next.js</li>
+              <li><i class="devicon-vuejs-plain colored"></i>Vue.js</li>
+              <li><i class="devicon-react-original colored"></i>React Native</li>
+              <li><i class="devicon-flutter-plain colored"></i>Flutter</li>
+              <li><i class="devicon-typescript-plain colored"></i>TypeScript & JavaScript</li>
             </ul>
           </div>
           <div class="skill-card">
             <h3>UI & Styling</h3>
             <ul>
-              <li>Bootstrap</li>
-              <li>Tailwind CSS</li>
-              <li>Material UI</li>
-              <li>CSS3 & HTML5</li>
-              <li>Responsive Design</li>
+              <li><i class="devicon-bootstrap-plain colored"></i>Bootstrap</li>
+              <li><i class="devicon-tailwindcss-original colored"></i>Tailwind CSS</li>
+              <li><i class="devicon-materialui-plain colored"></i>Material UI</li>
+              <li><i class="devicon-css3-plain colored"></i>CSS3 & HTML5</li>
+              <li><i class="devicon-html5-plain colored"></i>Responsive Design</li>
             </ul>
           </div>
           <div class="skill-card">
             <h3>Testing & DevOps</h3>
             <ul>
-              <li>Jasmine & Karma</li>
-              <li>Cypress & Jest</li>
-              <li>Git & GitHub</li>
-              <li>New Relic & Grafana</li>
-              <li>CI/CD Pipelines</li>
+              <li><i class="devicon-jasmine-plain colored"></i>Jasmine & Karma</li>
+              <li><i class="devicon-cypressio-plain colored"></i>Cypress & Jest</li>
+              <li><i class="devicon-git-plain colored"></i>Git & GitHub</li>
+              <li><i class="devicon-grafana-plain colored"></i>New Relic & Grafana</li>
+              <li><i class="devicon-githubactions-plain colored"></i>CI/CD Pipelines</li>
             </ul>
           </div>
           <div class="skill-card">
             <h3>Architecture & Methodologies</h3>
             <ul>
-              <li>Clean Architecture</li>
-              <li>MVVM Pattern</li>
-              <li>Repository Pattern</li>
-              <li>Agile Scrum</li>
-              <li>Test-Driven Development</li>
+              <li><i class="devicon-archlinux-plain colored"></i>Clean Architecture</li>
+              <li><i class="devicon-vscode-plain colored"></i>MVVM Pattern</li>
+              <li><i class="devicon-git-plain colored"></i>Repository Pattern</li>
+              <li><i class="devicon-jira-plain colored"></i>Agile Scrum</li>
+              <li><i class="devicon-pytest-plain colored"></i>Test-Driven Development</li>
             </ul>
           </div>
         </div>
