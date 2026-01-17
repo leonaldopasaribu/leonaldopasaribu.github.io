@@ -1068,10 +1068,13 @@
     </section>
 
     <footer>
-      <p>© 2025 Leonaldo Pasaribu. All rights reserved.</p>
+      <p>© <span id="currentYear"></span> Leonaldo Pasaribu. All rights reserved.</p>
     </footer>
 
     <script>
+      // Auto-update copyright year
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
       const themeToggle = document.getElementById("themeToggle");
       const themeIcon = document.getElementById("themeIcon");
       const body = document.body;
